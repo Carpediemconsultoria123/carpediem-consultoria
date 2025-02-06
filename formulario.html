@@ -267,5 +267,26 @@
             </fieldset>
         </form>
     </div>
+    <!-- Seu script JavaScript de envio -->
+    <script>
+    document.querySelector("#form-atendimento").addEventListener("submit", function(event) {
+        event.preventDefault(); // Evita o envio padrão do formulário
+
+        var formData = new FormData(this); // Cria um FormData com os dados do formulário
+        fetch("SUA_URL_DO_APPS_SCRIPT", { // Substitua "SUA_URL_DO_APPS_SCRIPT" pela URL gerada pelo Google Apps Script
+            method: "POST",
+            body: formData // Envia os dados do formulário para a URL do Google Apps Script
+        })
+        .then(response => response.text()) // Aguarda a resposta do servidor
+        .then(data => {
+            alert("Formulário enviado com sucesso!"); // Mensagem de sucesso
+            // Opcional: Limpar o formulário após o envio
+            document.querySelector("#form-atendimento").reset();
+        })
+        .catch(error => {
+            alert("Erro ao enviar formulário: " + error); // Mensagem de erro
+        });
+    });
+    </script>
 </body>
 </html>
