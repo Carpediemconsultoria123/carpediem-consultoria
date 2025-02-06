@@ -273,7 +273,7 @@
         event.preventDefault(); // Evita o envio padrão do formulário
 
         var formData = new FormData(this); // Cria um FormData com os dados do formulário
-        fetch("SUA_URL_DO_APPS_SCRIPT", { // Substitua "SUA_URL_DO_APPS_SCRIPT" pela URL gerada pelo Google Apps Script
+        fetch("https://script.google.com/macros/s/AKfycbwDlqt85yCYe83W4E1cRosbXfuwlXlg5nV8rxzdQvqWFNWLlE46_R9WP3xVorsZ4xUQWw/exec", { // Substitua "SUA_URL_DO_APPS_SCRIPT" pela URL gerada pelo Google Apps Script
             method: "POST",
             body: formData // Envia os dados do formulário para a URL do Google Apps Script
         })
