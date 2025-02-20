@@ -3,290 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Atendimento</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-image: linear-gradient(to right, #FD4D09, #FF6600, #E88635);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            width: 100%;
-        }
-        .box {
-            color: white;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            border-radius: 15px;
-            width: 40%;
-        }
-        fieldset {
-            border: 4px solid orangered;
-            padding: 25px;
-        }
-        legend {
-            border: 1px solid orangered;
-            padding: 10px;
-            text-align: center;
-            background-color: orangered;
-            border-radius: 8px;
-        }
-        .input-box {
-            margin-bottom: 15px;
-                        
-        }
-        .input-box input, .input-box select, .input-box textarea {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid orangered;
-            outline: none;
-            color: rgba(0, 0, 0, 0.7);
-            font-size: 15px;
-            width: 100%;
-            padding: 8px;
-            border-radius: 10px;
-            margin-top: 5px;
-            box-shadow: 0px 0px 10px #ff8800;
-        }
-        label {
-            font-size: 14px;
-        }
-        #submit {
-            background-image: linear-gradient(to right, #E88635, #FF6600, #FD4D09);
-            width: 100%;
-            border: none;
-            padding: 15px;
-            color: black;
-            font-size: 15px;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-        #submit:hover {
-            background-image: linear-gradient(to right, #F27D00, #E17500, #EAA779);
-        }
-
-         /* Adicionando layout flex */
-         .flex-container {
-            display: flex;
-            justify-content: space-around;
-            gap: 50px;
-        }
-        .flex-container .input-box {
-            width: 48%; /* Divide igualmente os campos lado a lado */
-        }
-        
-        .flex-container .input-box {
-        width: 70%; /* Divide igualmente os campos lado a lado */
-        border: 1px solid orangered; /* Adiciona borda ao redor de cada div */
-        padding: 15px; /* Adiciona espaçamento interno */
-        border-radius: 20px; /* Bordas arredondadas */
-        background-color: rgba(255, 255, 255, 0.1); /* Fundo leve para destaque */
-    }
-
-    /* Opcional: Garantir alinhamento entre os textos */
-    .flex-container label {
-        font-weight: bold;
-        
-    }
-    .container{
-        display: flex;
-    }
-    .elemento{
-        width: 45%;
-        height: 75px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border: 1px solid orangered;
-        border-radius: 20px;
-        padding: 15px;
-        box-shadow: 0px 0px 10px #ff8800;
-    }
-    </style>
+    <title>Protocolo de Atendimento</title>
+    <link rel="stylesheet" href="style/atendimento.css">
 </head>
 <body>
-    <div class="box">
-        <form action="formulario.html" method="POST">
-            <fieldset>
-                <legend><b>Formulário de Atendimento</b></legend>
+    <div class="container">
+        <form method="post" action="" name="formulario-atendimento">
+            <h4>Protocolo de Atendimento</h4>
+            
+            <div class="input-box">
+                <label for="status_atendimento">Status do Atendimento</label>
+                <select id="status_atendimento" name="status_atendimento" required>
+                    <option value="">Selecione</option>
+                    <option value="em_andamento">Em Andamento</option>
+                    <option value="parado">Parado</option>
+                    <option value="aguardando_cliente">Aguardando Cliente</option>
+                    <option value="concluído">Concluído</option>
+                </select>
+            </div><br>
 
-                <div class="input-box">
-                    <label for="data_solicitacao">Data da Solicitação</label>
-                    <input type="date" name="data_solicitacao" id="data_solicitacao" required>
-                </div>
+            <div>
+                <label for="data_solicitacao">Data de Solicitação</label>
+                <input type="date" name="data_solicitacao">
+            </div><br>
 
-                <div class="input-box">
-                    <label for="empresa">Empresa</label>
-                    <input type="text" name="empresa" id="empresa" required>
-                </div>
+            <div>
+                <label for="empresa">Empresa</label>
+                <input type="text" name="empresa" placeholder="Empresa">
+            </div><br>
 
-                <div class="input-box">
-                    <label for="gestor_atendido">Gestor Atendido</label>
-                    <input type="text" name="gestor_atendido" id="gestor_atendido" required>
-                </div><br>
+            <div>
+                <label for="gestor_atendido">Gestor Atendido</label>
+                <input type="text" name="gestor_atendido" placeholder="Gestor Atendido">
+            </div><br>
 
-                 <!-- Agrupando os dois campos em flex container -->
-                 
-                    <label>Status do Atendimento</label>
-                    <div class="container">
-                    <div class="elemento">
-                        <input type="radio" id="em_andamento" name="status_atendimento" value="em_andamento" required>
-                        <label for="em_andamento">Em Andamento</label>
-                        <br>
-                        <input type="radio" id="parado" name="status_atendimento" value="parado" required>
-                        <label for="parado">Parado</label><br>
-                        <input type="radio" id="aguardando_cliente" name="status_atendimento" value="aguardando_cliente" required>
-                        <label for="aguardando_cliente">Aguardando Cliente</label><br>
-                        <input type="radio" id="concluido" name="status_atendimento" value="concluido" required>
-                        <label for="concluido">Concluído</label><br>
-                    </div>
-                    </div><br>
-                        <label>Nível de Atenção</label><br>
-                        <div class="container">
-                        <div class="elemento">
-                        <input type="radio" id="urgente" name="nivel_atencao" value="urgente" required>
-                        <label for="urgente">Urgente</label><br>
-                        <input type="radio" id="moderado" name="nivel_atencao" value="moderado" required>
-                        <label for="moderado">Moderado</label><br>
-                        <input type="radio" id="leve" name="nivel_atencao" value="leve" required>
-                        <label for="leve">Leve</label><br>
-                        <input type="radio" id="especial" name="nivel_atencao" value="especial" required>
-                        <label for="especial">Especial</label><br>
-                    </div>
-                    </div><br>
-                
-                <div class="input-box">
-                    <label for="setor_responsavel_1">Setor Responsável¹</label>
-                    <select id="setor_responsavel_1" name="setor_responsavel_1" required>
-                        <option value="">Selecione</option>
-                        <option value="Comercial">Comercial</option>
-                        <option value="Jurídico">Jurídico</option>
-                        <option value="Financeiro">Financeiro</option>
-                        <option value="DHO">DHO</option>
-                        <option value="R&S SP">R&S SP</option>
-                        <option value="R&S RJ">R&S RJ</option>
-                        <option value="Projetos e Planejamento">Projetos e Planejamento</option>
-                        <option value="Experiência do Colaborador">Experiência do Colaborador</option>
-                        <option value="T.I.">T.I></option>
-                        <option value="Experiência do Cliente">Experiência do Cliente</option>
-                        <option value="DP Admissão">DP Admissão</option>
-                        <option value="DP Rescisão">DP Rescisão</option>
-                        <option value="DP Folha de Pagamento">DP Folha de Pagamento</option>
-                        <option value="DP Benefícios VR, VA e VT">DP Benefícios VR, VA e VT</option>
-                        <option value="DP Rescisão Meli">DP Rescisão Meli</option>
-                        <option value="DP Folha de Ponto">DP Folha de Ponto</option>
-                        <option value="DP Cadastro de Ponto">DP Cadastro de Ponto</option>
-                        <option value="DP Benefícios Convênios">DP Benefícios Convênios</option>
-                        <option value="DP Rescisão e Admissão de Terceiros">DP Rescisão e Admissão de Terceiros</option>
-                        <option value="DP Cancelamento">DP Cancelamento</option>
-                    </select>
-                </div>
+            <div class="input-box">
+                <label for="nivel_atencao">Nível de Atenção</label>
+                <select id="nivel_atencao" name="nivel_atencao" required>
+                    <option value="">Selecione</option>
+                    <option value="urgente">Urgente</option>
+                    <option value="moderado">Moderado</option>
+                    <option value="leve">Leve</option>
+                    <option value="especial">Especial</option>
+                </select>
+            </div><br>
 
-                <div class="input-box">
-                    <label for="observacoes_1">Observações¹</label>
-                    <textarea name="observacoes_1" id="observacoes_1" rows="3"></textarea>
-                </div>
+            <div class="input-box">
+                <label for="setor_responsavel1">Setor Responsável</label>
+                <select id="setor_responsavel1" name="setor_responsavel1" required>
+                    <option value="">Selecione</option>
+                    <optgroup label="Departamentos Gerais">
+                        <option value="comercial">Comercial</option>
+                        <option value="financeiro">Financeiro</option>
+                        <option value="juridico">Jurídico</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="t_i">T.I.</option>
+                    </optgroup>
+                    <optgroup label="Recursos Humanos">
+                        <option value="dho">DHO</option>
+                        <option value="experiencia_colaborador">Experiência do Colaborador</option>
+                        <option value="customer_success">Customer Success</option>
+                        <option value="r&s_sp">R&S SP</option>
+                        <option value="r&s_rj">R&S RJ</option>
+                    </optgroup>
+                    <optgroup label="Departamento Pessoal">
+                        <option value="dp_admissao">DP Admissão</option>
+                        <option value="dp_rescisao">DP Rescisão</option>
+                        <option value="dp_folha_pagamento">DP Folha de Pagamento</option>
+                        <option value="dp_folha_ponto">DP Folha de Ponto</option>
+                        <option value="dp_cadastro_ponto">DP Cadastro de Ponto</option>
+                        <option value="dp_beneficios">DP Benefícios VR, VA e VT</option>
+                        <option value="dp_rescisao_meli">DP Rescisão Meli</option>
+                        <option value="dp_convenios">DP Benefícios Convênios</option>
+                    </optgroup>
+                </select>
+            </div><br>
 
-                <div class="input-box">
-                    <label for="setor_responsavel_2">Setor Responsável²</label>
-                    <select id="setor_responsavel_2" name="setor_responsavel_2" required>
-                        <option value="">Selecione</option>
-                        <option value="Comercial">Comercial</option>
-                        <option value="Jurídico">Jurídico</option>
-                        <option value="Financeiro">Financeiro</option>
-                        <option value="DHO">DHO</option>
-                        <option value="R&S SP">R&S SP</option>
-                        <option value="R&S RJ">R&S RJ</option>
-                        <option value="Projetos e Planejamento">Projetos e Planejamento</option>
-                        <option value="Experiência do Colaborador">Experiência do Colaborador</option>
-                        <option value="T.I.">T.I></option>
-                        <option value="Experiência do Cliente">Experiência do Cliente</option>
-                        <option value="DP Admissão">DP Admissão</option>
-                        <option value="DP Rescisão">DP Rescisão</option>
-                        <option value="DP Folha de Pagamento">DP Folha de Pagamento</option>
-                        <option value="DP Benefícios VR, VA e VT">DP Benefícios VR, VA e VT</option>
-                        <option value="DP Rescisão Meli">DP Rescisão Meli</option>
-                        <option value="DP Folha de Ponto">DP Folha de Ponto</option>
-                        <option value="DP Cadastro de Ponto">DP Cadastro de Ponto</option>
-                        <option value="DP Benefícios Convênios">DP Benefícios Convênios</option>
-                        <option value="DP Rescisão e Admissão de Terceiros">DP Rescisão e Admissão de Terceiros</option>
-                        <option value="DP Cancelamento">DP Cancelamento</option>
-                    </select>
-                </div>
+            <div class="input-box">
+                <label for="observacao1">Observação</label>
+                <textarea name="observacao1" id="observacao1" rows="3" placeholder="Digite sua mensagem"></textarea>
+            </div><br>
 
-                <div class="input-box">
-                    <label for="observacoes_2">Observações²</label>
-                    <textarea name="observacoes_2" id="observacoes_2" rows="3"></textarea>
-                </div>
+            <div class="input-box">
+                <label for="setor_responsavel2">Setor Responsável (Opcional)</label>
+                <select id="setor_responsavel2" name="setor_responsavel2">
+                    <option value="">Selecione</option>
+                    <optgroup label="Departamentos Gerais">
+                        <option value="comercial">Comercial</option>
+                        <option value="financeiro">Financeiro</option>
+                        <option value="juridico">Jurídico</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="t_i">T.I.</option>
+                    </optgroup>
+                    <optgroup label="Recursos Humanos">
+                        <option value="dho">DHO</option>
+                        <option value="experiencia_colaborador">Experiência do Colaborador</option>
+                        <option value="customer_success">Customer Success</option>
+                        <option value="r&s_sp">R&S SP</option>
+                        <option value="r&s_rj">R&S RJ</option>
+                    </optgroup>
+                    <optgroup label="Departamento Pessoal">
+                        <option value="dp_admissao">DP Admissão</option>
+                        <option value="dp_rescisao">DP Rescisão</option>
+                        <option value="dp_folha_pagamento">DP Folha de Pagamento</option>
+                        <option value="dp_folha_ponto">DP Folha de Ponto</option>
+                        <option value="dp_cadastro_ponto">DP Cadastro de Ponto</option>
+                        <option value="dp_beneficios">DP Benefícios VR, VA e VT</option>
+                        <option value="dp_rescisao_meli">DP Rescisão Meli</option>
+                        <option value="dp_convenios">DP Benefícios Convênios</option>
+                    </optgroup>
+                </select>
+            </div><br>
 
-                <div class="input-box">
-                    <label for="setor_responsavel_3">Setor Responsável³</label>
-                    <select id="setor_responsavel_3" name="setor_responsavel_3" required>
-                        <option value="">Selecione</option>
-                        <option value="Comercial">Comercial</option>
-                        <option value="Jurídico">Jurídico</option>
-                        <option value="Financeiro">Financeiro</option>
-                        <option value="DHO">DHO</option>
-                        <option value="R&S SP">R&S SP</option>
-                        <option value="R&S RJ">R&S RJ</option>
-                        <option value="Projetos e Planejamento">Projetos e Planejamento</option>
-                        <option value="Experiência do Colaborador">Experiência do Colaborador</option>
-                        <option value="T.I.">T.I></option>
-                        <option value="Experiência do Cliente">Experiência do Cliente</option>
-                        <option value="DP Admissão">DP Admissão</option>
-                        <option value="DP Rescisão">DP Rescisão</option>
-                        <option value="DP Folha de Pagamento">DP Folha de Pagamento</option>
-                        <option value="DP Benefícios VR, VA e VT">DP Benefícios VR, VA e VT</option>
-                        <option value="DP Rescisão Meli">DP Rescisão Meli</option>
-                        <option value="DP Folha de Ponto">DP Folha de Ponto</option>
-                        <option value="DP Cadastro de Ponto">DP Cadastro de Ponto</option>
-                        <option value="DP Benefícios Convênios">DP Benefícios Convênios</option>
-                        <option value="DP Rescisão e Admissão de Terceiros">DP Rescisão e Admissão de Terceiros</option>
-                        <option value="DP Cancelamento">DP Cancelamento</option>
-                    </select>
-                </div>
+            <div class="input-box">
+                <label for="observacao2">Observação</label>
+                <textarea name="observacao2" id="observacao2" rows="3" placeholder="Digite sua mensagem"></textarea>
+            </div><br>
 
-                <div class="input-box">
-                    <label for="observacoes_3">Observações³</label>
-                    <textarea name="observacoes_3" id="observacoes_3" rows="3"></textarea>
-                </div>
+            <div class="input-box">
+                <label for="setor_responsavel3">Setor Responsável (Opcional 2)</label>
+                <select id="setor_responsavel3" name="setor_responsavel3">
+                    <option value="">Selecione</option>
+                    <optgroup label="Departamentos Gerais">
+                        <option value="comercial">Comercial</option>
+                        <option value="financeiro">Financeiro</option>
+                        <option value="juridico">Jurídico</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="t_i">T.I.</option>
+                    </optgroup>
+                    <optgroup label="Recursos Humanos">
+                        <option value="dho">DHO</option>
+                        <option value="experiencia_colaborador">Experiência do Colaborador</option>
+                        <option value="customer_success">Customer Success</option>
+                        <option value="r&s_sp">R&S SP</option>
+                        <option value="r&s_rj">R&S RJ</option>
+                    </optgroup>
+                    <optgroup label="Departamento Pessoal">
+                        <option value="dp_admissao">DP Admissão</option>
+                        <option value="dp_rescisao">DP Rescisão</option>
+                        <option value="dp_folha_pagamento">DP Folha de Pagamento</option>
+                        <option value="dp_folha_ponto">DP Folha de Ponto</option>
+                        <option value="dp_cadastro_ponto">DP Cadastro de Ponto</option>
+                        <option value="dp_beneficios">DP Benefícios VR, VA e VT</option>
+                        <option value="dp_rescisao_meli">DP Rescisão Meli</option>
+                        <option value="dp_convenios">DP Benefícios Convênios</option>
+                    </optgroup>
+                </select>
+            </div><br>
 
-                <div class="input-box">
-                    <label for="sla_resposta">SLA para Resposta</label>
-                    <input type="text" name="sla_resposta" id="sla_resposta" required>
-                </div>
+            <div class="input-box">
+                <label for="observacao3">Observação</label>
+                <textarea name="observacao3" id="observacao3" rows="3" placeholder="Digite sua mensagem"></textarea>
+            </div><br>
 
-                <div class="input-box">
-                    <label for="responsavel_atendimento">Responsável pelo Atendimento</label>
-                    <input type="text" name="responsavel_atendimento" id="responsavel_atendimento" required>
-                </div>
+            <div class="input-box">
+                <label for="sla_resposta">SLA de Resposta</label>
+                <select id="sla_resposta" name="sla_resposta" required>
+                    <option value="">Selecione</option>
+                    <option value="12_horas">12 horas</option>
+                    <option value="18_horas">18 horas</option>
+                    <option value="24_horas">24 horas</option>
+                    <option value="48_horas">48 horas</option>
+                </select>
+            </div><br>
 
-                <div class="input-box">
-                    <button type="submit" id="submit">Enviar</button>
-                </div>
-            </fieldset>
+            <div class="input-box">
+                <label for="responsavel_cs">CS Responsável</label>
+                <select id="responsavel_cs" name="responsavel_cs" required>
+                    <option value="">Selecione</option>
+                    <option value="luis_fernandez">Luis Fernandez</option>
+                    <option value="mayara_rocha">Mayara Rocha</option>
+                    <option value="jose_soares">José Soares</option>
+                    <option value="rinaldo_figueiredo">Rinaldo Figueiredo</option>
+                </select>
+            </div><br>
+
+            <button type="submit">Enviar</button>
         </form>
     </div>
-    <!-- Seu script JavaScript de envio -->
-    <script>
-    document.querySelector("#form-atendimento").addEventListener("submit", function(event) {
-        event.preventDefault(); // Evita o envio padrão do formulário
-
-        var formData = new FormData(this); // Cria um FormData com os dados do formulário
-        fetch("https://script.google.com/macros/s/AKfycbwDlqt85yCYe83W4E1cRosbXfuwlXlg5nV8rxzdQvqWFNWLlE46_R9WP3xVorsZ4xUQWw/exec", { // Substitua "SUA_URL_DO_APPS_SCRIPT" pela URL gerada pelo Google Apps Script
-            method: "POST",
-            body: formData // Envia os dados do formulário para a URL do Google Apps Script
-        })
-        .then(response => response.text()) // Aguarda a resposta do servidor
-        .then(data => {
-            alert("Formulário enviado com sucesso!"); // Mensagem de sucesso
-            // Opcional: Limpar o formulário após o envio
-            document.querySelector("#form-atendimento").reset();
-        })
-        .catch(error => {
-            alert("Erro ao enviar formulário: " + error); // Mensagem de erro
-        });
-    });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
